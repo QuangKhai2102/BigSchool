@@ -9,7 +9,6 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(m=>m.Id)
-    <body style="background:url('../../Content/mau background don gian.jpg')">
     <div class="form-group">
         @Html.LabelFor(m => m.place)
         @Html.TextBoxFor(m => m.place, new { @class = "form-control" })
@@ -32,7 +31,7 @@
         @Html.ValidationMessageFor(m => m.Category)
     </div>
     <button type="submit" value="Save" class="btn btn-primary" style="color:aqua ; width:52px">Lưu</button>
-        </body>
+
 }
 @section scripts
 {

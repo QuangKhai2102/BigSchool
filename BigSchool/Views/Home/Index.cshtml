@@ -3,7 +3,9 @@
 @using BigSchool.Models;
 @{
     ViewBag.Title = "Home Page";
+
 }
+<body style="background-color:antiquewhite;">
 <div class="course">
     <ul>
         @foreach (var course in Model.UpcommingCourses)
@@ -17,11 +19,11 @@
                         @course.DateTime.ToString("dd")
                     </div>
                 </div>
-                <div class="details">
+                <div class="details" style="margin-left:100px">
                     <span class="lecturer">
                         @course.Lecturer.Name
                         
-                            <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
+                            <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId" style="background-color:green">Following</button>
                         
                     </span>
                     <span class="category">
@@ -73,9 +75,10 @@
                 @*coursesController.init();*@
                 $(".js-toggle-follow").click(function (e) {
                     var button = $(e.target);
-                    $.post("/api/followings", { followeeId: button.data('user-id') })
+                    $.post("/api/followings", { followeeId: button.data('data-user-id') })
                         .done(function () {
                             button.text("Following");
+                            alert("Follow sucessfully")
                         })
                         .fail(function () {
                             alert("Something failed");
@@ -85,3 +88,4 @@
         </script>
     }
 </div>
+</body>

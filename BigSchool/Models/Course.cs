@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using BigSchool.Models;
 namespace BigSchool.Models
 {
-    public class Course
+    public partial class Course
     {
         public int Id { get; set; }
         public bool IsCanceled { get; set; }
